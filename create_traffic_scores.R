@@ -9,13 +9,17 @@ colnames(data)<-v$name
 n_y<-.001
 n_x<-.002
 
+
 getDistance<-function(x1,y1,x2,y2){
   return(sqrt((x2-x1)^2 + (y2-y1)^2))
 }
+
+# Clear NA values and subsitute with -1 (needed to clean dataset)
 na.zero <- function (x) {
   x[is.na(x)] <- -1
   return(x)
 }
+
 
 createLot<-function(transits_df){
   if(nrow(transits_df)<2){return(list("mean" = 0, "count" = 0))}
